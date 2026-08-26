@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AirRadar — Wireless & IoT Signal Dashboard</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon"></div>
+      <div class="logo-title">AIR_RADAR</div>
+      <span class="logo-tag">PROXIMITY RADAR v1.0</span>
+    </div>
+    <div class="header-actions">
+      <button class="btn-pill" id="audioToggle">🔈 Sound: OFF</button>
+    </div>
+  </header>
+
+  <!-- Environmental Posture Bar -->
+  <section class="stats-bar">
+    <div class="stat-card">
+      <span class="stat-label">Privacy Posture</span>
+      <span class="stat-value green" id="statScore">100/100</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Airwave Devices</span>
+      <span class="stat-value cyan" id="statTotal">0</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Nearby Trackers</span>
+      <span class="stat-value" id="statTrackers">0</span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Exposure Warnings</span>
+      <span class="stat-value red" id="statAlerts">0</span>
+    </div>
+  </section>
+
+  <!-- Main View Grid -->
+  <main class="main-container">
+    <!-- Radar View -->
+    <div class="radar-panel">
+      <span class="radar-overlay-badge">POLAR PROXIMITY SWEEP // 60 FPS</span>
+      <div class="radar-wrapper">
+        <canvas id="radarCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Active Signals List -->
+    <div class="devices-panel">
+      <div class="panel-header">
+        <input type="text" class="search-input" id="searchInput" placeholder="Search signals...">
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="ALL">ALL</button>
+          <button class="filter-btn" data-filter="BLE">BLE</button>
+          <button class="filter-btn" data-filter="mDNS">mDNS</button>
+          <button class="filter-btn" data-filter="SSDP">SSDP</button>
+        </div>
+      </div>
+      <div class="device-list" id="deviceList">
+        <!-- Dynamically injected device cards -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Device Detail Modal Drawer -->
+  <div class="modal-overlay" id="deviceModal" onclick="if(event.target === this) closeModal()">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h2 id="modalTitle" style="color: #00f0ff; margin-bottom: 8px;">Device Telemetry</h2>
+      
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-item-label">PROTOCOL</div>
+          <div class="meta-item-val" id="modalProtocol">-</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-item-label">VENDOR</div>
+          <div class="meta-item-val" id="modalVendor">-</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-item-label">CATEGORY</div>
+          <div class="meta-item-val" id="modalCategory">-</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-item-label">SIGNAL STRENGTH / DIST</div>
+          <div class="meta-item-val" id="modalRssi">-</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-item-label">NETWORK ENDPOINT</div>
+          <div class="meta-item-val" id="modalIp">-</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-item-label">PACKETS CAPTURED</div>
+          <div class="meta-item-val" id="modalPackets">-</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 16px;">
+        <h4 style="font-size: 0.8rem; text-transform: uppercase; color: #9ca3af; letter-spacing: 1px;">Security & Privacy Audit</h4>
+        <div id="modalThreats"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/radar.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "air-radar"
+version = "1.0.0"
+description = "Passive Wireless, BLE, mDNS & SSDP Broadcast Environment Radar"
+readme = "README.md"
+authors = [{ name = "AirRadar Contributors" }]
+license = { text = "MIT" }
+keywords = ["bluetooth", "ble", "mdns", "ssdp", "radar", "iot", "security", "privacy", "airtag"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Networking :: Monitoring",
+    "Topic :: Security"
+]
+requires-python = ">=3.9"
+dependencies = [
+    "bleak>=0.21.0",
+    "zeroconf>=0.131.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.29.0",
+    "websockets>=12.0",
+    "rich>=13.7.0"
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0.0"
+]
+
+[project.scripts]
+air-radar = "air_radar.cli:main"
