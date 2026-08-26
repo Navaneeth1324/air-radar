@@ -157,6 +157,13 @@ pytest
 
 ---
 
+## 👥 Authors & Contributors
+
+- **Navaneeth** ([@Navaneeth1324](https://github.com/Navaneeth1324))
+- **Ganavi Gowda** ([@ganavigowda8343-ctrl](https://github.com/ganavigowda8343-ctrl))
+
+---
+
 ## 📄 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.

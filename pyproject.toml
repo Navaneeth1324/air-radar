@@ -7,7 +7,10 @@ name = "air-radar"
 version = "1.0.0"
 description = "Passive Wireless, BLE, mDNS & SSDP Broadcast Environment Radar"
 readme = "README.md"
-authors = [{ name = "AirRadar Contributors" }]
+authors = [
+    { name = "Navaneeth", email = "Navaneeth1324@users.noreply.github.com" },
+    { name = "Ganavi Gowda", email = "ganavigowda8343-ctrl@users.noreply.github.com" }
+]
 license = { text = "MIT" }
 keywords = ["bluetooth", "ble", "mdns", "ssdp", "radar", "iot", "security", "privacy", "airtag"]
 classifiers = [
