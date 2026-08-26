@@ -89,7 +89,7 @@ flowchart TD
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/air-radar.git
+git clone https://github.com/Navaneeth1324/air-radar.git
 cd air-radar
 pip install -e .
 ```
